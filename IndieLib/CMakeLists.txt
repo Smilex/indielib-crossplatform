@@ -61,6 +61,7 @@ find_package(FreeImage REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(UnitTest++)
+find_package(TinyXML)
 
 if(NOT SDL2_FOUND)
 	# Use SDL2 provided with IndieLib
@@ -72,6 +73,12 @@ if(NOT UnitTest++_FOUND)
 	set ( UnitTest++_LIBRARY UnitTest++)
 	set ( UnitTest++_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/unittest++/src )
 endif(NOT UnitTest++_FOUND)
+
+if(NOT TINYXML_FOUND)
+	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/tinyxml)
+	set ( TINYXML_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/tinyxml)
+	set ( TINYXML_LIBRARIES TinyXML )
+endif(NOT TINYXML_FOUND)
 
 if (USE_OPENGLES)
 	find_package(OpenGLES)
@@ -88,10 +95,11 @@ include_directories( "${CMAKE_CURRENT_SOURCE_DIR}/common/include"
 					 OpenGLES_INCLUDE_DIR
 					 TmxParser_INCLUDE_DIR
 					 UnitTest++_INCLUDE_DIR
+					 TINYXML_INCLUDE_DIR
 					)
 
 add_subdirectory(common/dependencies/SpriterParser)
 
 add_library( IndieLib ${SRC} ${INC} )
 
-target_link_libraries( IndieLib OpenGL_LIBRARY GLEW_LIBRARY SDL2_LIBRARY TmxParser_LIBRARY UnitTest++_LIBRARY SpriterParser )
+target_link_libraries( IndieLib OpenGL_LIBRARY GLEW_LIBRARY SDL2_LIBRARY TmxParser_LIBRARY UnitTest++_LIBRARY TINYXML_LIBRARIES SpriterParser )
