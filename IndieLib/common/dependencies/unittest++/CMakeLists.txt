@@ -44,4 +44,4 @@ else (BUILD_STATIC)
 	set ( BUILD_TYPE SHARED )
 endif (BUILD_STATIC)
 
-add_library(UnitTest++ SRC INC BUILD_TYPE)
+add_library(UnitTest++ ${BUILD_TYPE} ${SRC} ${INC})

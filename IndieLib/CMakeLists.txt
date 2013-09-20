@@ -47,7 +47,7 @@ set ( SRC	common/src/CollisionParser.cpp
 			common/src/IND_TmxMap.cpp
 			common/src/IND_TmxMapManager.cpp
 			common/src/IND_Window.cpp
-			common/src/PrecisionTimer.cpp
+			common/src/PrecissionTimer.cpp
 	)
 
 # Include headers don't need to be added to the compilation source
@@ -92,6 +92,6 @@ include_directories( "${CMAKE_CURRENT_SOURCE_DIR}/common/include"
 
 add_subdirectory(common/dependencies/SpriterParser)
 
-add_library( IndieLib SRC INC )
+add_library( IndieLib ${SRC} ${INC} )
 
 target_link_libraries( IndieLib OpenGL_LIBRARY GLEW_LIBRARY SDL2_LIBRARY TmxParser_LIBRARY UnitTest++_LIBRARY SpriterParser )
