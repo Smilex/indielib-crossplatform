@@ -73,6 +73,7 @@ if (USE_OPENGL)
 				common/src/render/opengl/RenderTransform2dOpenGL.cpp
 				common/src/render/opengl/RenderTransform3dOpenGL.cpp
 				common/src/render/opengl/RenderTransformCommonOpenGL.cpp
+				common/src/platform/OSOpenGLManager.cpp
 		)
 
 endif (USE_OPENGL)
