@@ -99,6 +99,7 @@ if (USE_OPENGLES)
 endif(USE_OPENGLES)
 
 include_directories( "${CMAKE_CURRENT_SOURCE_DIR}/common/include"
+					 "${CMAKE_CURRENT_SOURCE_DIR}/common/src"
 					 "${CMAKE_CURRENT_SOURCE_DIR}/common"
 					 SDL2_INCLUDE_DIR
 					 FreeImage_INCLUDE_DIR
