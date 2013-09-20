@@ -12,6 +12,7 @@
 cmake_minimum_required (VERSION 2.6)
 project(IndieLib)
 
+option(USE_OPENGLES "Compile with OpenGL ES support" YES)
 
 set ( SRC	common/src/CollisionParser.cpp
 			common/src/DebugApi.cpp
@@ -53,13 +54,12 @@ set ( SRC	common/src/CollisionParser.cpp
 #  but some IDEs will only show them if they are, so I will GLOB them
 file ( GLOB INC common/include/*.h common/include/*.hpp common/src/*.h common/src/*.hpp )
 
-set( CMAKE_MODULE_PATH "cmake/Modules" )
+set( CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules" )
 
 find_package(SDL2 REQUIRED)
 find_package(FreeImage REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
-find_package(OpenGLES)
 find_package(UnitTest++ REQUIRED)
 
 if(NOT SDL2_FOUND)
@@ -67,10 +67,13 @@ if(NOT SDL2_FOUND)
 	set (SDL2_INCLUDE_DIR common/dependencies/SDL-2.0/include)
 endif(NOT SDL2_FOUND)
 
-if(NOT OpenGLES_FOUND)
-	set (OpenGLES_INCLUDE_DIR "common/dependencies/OpenGL ES/GLES/v1.1")
-endif(NOT OpenGLES_FOUND)
+if (USE_OPENGLES)
+	find_package(OpenGLES)
 
+	if(NOT OpenGLES_FOUND)
+		set (OpenGLES_INCLUDE_DIR "common/dependencies/OpenGL ES/GLES/v1.1")
+	endif(NOT OpenGLES_FOUND)
+endif(USE_OPENGLES)
 
 include_directories( "${CMAKE_SOURCE_DIR}/common/include"
 					 SDL2_INCLUDE_DIR
