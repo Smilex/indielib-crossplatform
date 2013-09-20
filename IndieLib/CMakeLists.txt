@@ -53,10 +53,29 @@ set( CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules" )
 
 find_package(SDL2 REQUIRED)
 find_package(FreeImage REQUIRED)
-find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
 find_package(UnitTest++)
 find_package(TinyXML)
+
+option (USE_OPENGL "Use OpenGL for rendering." ON)
+
+if (USE_OPENGL)
+	find_package(OpenGL REQUIRED)
+	find_package(GLEW REQUIRED)
+
+	set ( SRC	${SRC}
+				common/src/render/opengl/OpenGLRender.cpp
+				common/src/render/opengl/OpenGLTextureBuilder.cpp
+				common/src/render/opengl/RenderCullingOpenGL.cpp
+				common/src/render/opengl/RenderObject2dOpenGL.cpp
+				common/src/render/opengl/RenderObject3dOpenGL.cpp
+				common/src/render/opengl/RenderPrimitive2dOpenGL.cpp
+				common/src/render/opengl/RenderText2dOpenGL.cpp
+				common/src/render/opengl/RenderTransform2dOpenGL.cpp
+				common/src/render/opengl/RenderTransform3dOpenGL.cpp
+				common/src/render/opengl/RenderTransformCommonOpenGL.cpp
+		)
+
+endif (USE_OPENGL)
 
 if(NOT SDL2_FOUND)
 	# Use SDL2 provided with IndieLib
