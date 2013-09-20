@@ -60,7 +60,6 @@ find_package(FreeImage REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(OpenGLES)
-find_package(TmxParser REQUIRED)
 find_package(UnitTest++ REQUIRED)
 
 if(NOT SDL2_FOUND)
@@ -82,6 +81,8 @@ include_directories( "${CMAKE_SOURCE_DIR}/common/include"
 					 UnitTest++_INCLUDE_DIR
 					)
 
+add_subdirectory(common/dependencies/SpriterParser)
+
 add_library( IndieLib SRC INC )
 
-target_link_libraries( IndieLib OpenGL_LIBRARY GLEW_LIBRARY SDL2_LIBRARY TmxParser_LIBRARY UnitTest++_LIBRARY )
+target_link_libraries( IndieLib OpenGL_LIBRARY GLEW_LIBRARY SDL2_LIBRARY TmxParser_LIBRARY UnitTest++_LIBRARY SpriterParser )
