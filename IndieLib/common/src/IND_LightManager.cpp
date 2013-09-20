@@ -96,7 +96,7 @@ void IND_LightManager::end() {
 bool IND_LightManager::add(IND_Light *pNewLight, IND_LightType pLightType) {
 	g_debug->header("Adding Light", 5);
 	g_debug->header("Light name:", 3);
-	g_debug->dataInt((int) &pNewLight->_light, 1);
+	g_debug->dataInt((long int) &pNewLight->_light, 1);
 
 	if (!_ok) {
 		writeMessage();
