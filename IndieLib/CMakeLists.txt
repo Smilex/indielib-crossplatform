@@ -14,16 +14,11 @@ set ( SRC	common/src/CollisionParser.cpp
 			common/src/FreeImageHelper.cpp
 			common/src/Global.cpp
 			common/src/ImageCutter.cpp
-			common/src/IND_3dMesh.cpp
-			common/src/IND_3dMeshManager.cpp
 			common/src/IND_Animation.cpp
 			common/src/IND_AnimationManager.cpp
 			common/src/IND_Camera2d.cpp
-			common/src/IND_Camera3d.cpp
 			common/src/IND_Entity2d.cpp
 			common/src/IND_Entity2dManager.cpp
-			common/src/IND_Entity3d.cpp
-			common/src/IND_Entity3dManager.cpp
 			common/src/IND_FontManager.cpp
 			common/src/IndieLib.cpp
 			common/src/IndieVersion.cpp
