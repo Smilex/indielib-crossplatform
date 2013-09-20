@@ -54,18 +54,24 @@ set ( SRC	common/src/CollisionParser.cpp
 #  but some IDEs will only show them if they are, so I will GLOB them
 file ( GLOB INC common/include/*.h common/include/*.hpp common/src/*.h common/src/*.hpp )
 
-set( CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/Modules" )
+set( CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules" )
 
 find_package(SDL2 REQUIRED)
 find_package(FreeImage REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
-find_package(UnitTest++ REQUIRED)
+find_package(UnitTest++)
 
 if(NOT SDL2_FOUND)
 	# Use SDL2 provided with IndieLib
 	set (SDL2_INCLUDE_DIR common/dependencies/SDL-2.0/include)
 endif(NOT SDL2_FOUND)
+
+if(NOT UnitTest++_FOUND)
+	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/unittest++)
+	set ( UnitTest++_LIBRARY UnitTest++)
+	set ( UnitTest++_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/unittest++/src )
+endif(NOT UnitTest++_FOUND)
 
 if (USE_OPENGLES)
 	find_package(OpenGLES)
@@ -75,7 +81,7 @@ if (USE_OPENGLES)
 	endif(NOT OpenGLES_FOUND)
 endif(USE_OPENGLES)
 
-include_directories( "${CMAKE_SOURCE_DIR}/common/include"
+include_directories( "${CMAKE_CURRENT_SOURCE_DIR}/common/include"
 					 SDL2_INCLUDE_DIR
 					 FreeImage_INCLUDE_DIR
 					 GLEW_INCLUDE_DIR
