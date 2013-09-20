@@ -112,6 +112,14 @@ include_directories( "${CMAKE_CURRENT_SOURCE_DIR}/common/include"
 
 add_subdirectory(common/dependencies/SpriterParser)
 
-add_library( IndieLib ${SRC} ${INC} )
+option(BUILD_STATIC "Build IndieLib as a static library. Otherwise it is built as a shared library." OFF)
+
+if (BUILD_STATIC)
+	set (BUILD_TYPE STATIC)
+else (BUILD_STATIC)
+	set (BUILD_TYPE SHARED)
+endif (BUILD_STATIC)
+
+add_library( IndieLib ${BUILD_TYPE} ${SRC} ${INC} )
 
 target_link_libraries( IndieLib OpenGL_LIBRARY GLEW_LIBRARY SDL2_LIBRARY TmxParser_LIBRARY UnitTest++_LIBRARY TINYXML_LIBRARIES SpriterParser )
