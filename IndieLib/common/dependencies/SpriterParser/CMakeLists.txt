@@ -13,4 +13,4 @@ set ( SRC	Animation.cpp
 
 file ( GLOB INC *.h *.hpp )
 
-add_library( SpriteParser STATIC ${SRC} ${INC} )
+add_library( SpriterParser STATIC ${SRC} ${INC} )
