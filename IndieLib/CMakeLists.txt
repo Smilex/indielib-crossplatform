@@ -122,4 +122,4 @@ endif (IndieLib_BUILD_STATIC)
 
 add_library( IndieLib ${IndieLib_BUILD_TYPE} ${SRC} ${INC} )
 
-target_link_libraries( IndieLib ${OpenGL_LIBRARY} ${GLEW_LIBRARY} ${SDL2_LIBRARY} ${TmxParser_LIBRARY} ${UnitTest++_LIBRARY} ${TINYXML_LIBRARIES} SpriterParser )
+target_link_libraries( IndieLib ${OpenGL_LIBRARY} ${GLEW_LIBRARY} ${SDL2_LIBRARY} ${FreeImage_LIBRARY} ${TmxParser_LIBRARY} ${UnitTest++_LIBRARY} ${TINYXML_LIBRARIES} SpriterParser )
