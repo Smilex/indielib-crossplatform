@@ -9,35 +9,35 @@ project(IndieLib)
 
 option(USE_OPENGLES "Compile with OpenGL ES support" YES)
 
-set ( SRC	common/src/CollisionParser.cpp
-			common/src/DebugApi.cpp
-			common/src/FreeImageHelper.cpp
-			common/src/Global.cpp
-			common/src/ImageCutter.cpp
-			common/src/IND_Animation.cpp
-			common/src/IND_AnimationManager.cpp
-			common/src/IND_Camera2d.cpp
-			common/src/IND_Entity2d.cpp
-			common/src/IND_Entity2dManager.cpp
-			common/src/IND_FontManager.cpp
-			common/src/IndieLib.cpp
-			common/src/IndieVersion.cpp
-			common/src/IND_Image.cpp
-			common/src/IND_ImageManager.cpp
-			common/src/IND_Input.cpp
-			common/src/IND_Light.cpp
-			common/src/IND_LightManager.cpp
-			common/src/IND_Math.cpp
-			common/src/IND_Render.cpp
-			common/src/IND_SpriterEntity.cpp
-			common/src/IND_SpriterManager.cpp
-			common/src/IND_Surface.cpp
-			common/src/IND_SurfaceManager.cpp
-			common/src/IND_Timer.cpp
-			common/src/IND_TmxMap.cpp
-			common/src/IND_TmxMapManager.cpp
-			common/src/IND_Window.cpp
-			common/src/PrecissionTimer.cpp
+set ( SRC	${CMAKE_CURRENT_SOURCE_DIR}/common/src/CollisionParser.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/DebugApi.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/FreeImageHelper.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/Global.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/ImageCutter.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Animation.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_AnimationManager.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Camera2d.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Entity2d.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Entity2dManager.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_FontManager.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IndieLib.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IndieVersion.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Image.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_ImageManager.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Input.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Light.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_LightManager.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Math.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Render.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_SpriterEntity.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_SpriterManager.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Surface.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_SurfaceManager.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Timer.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_TmxMap.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_TmxMapManager.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/IND_Window.cpp
+			${CMAKE_CURRENT_SOURCE_DIR}/common/src/PrecissionTimer.cpp
 	)
 
 # Include headers don't need to be added to the compilation source
@@ -58,17 +58,17 @@ if (USE_OPENGL)
 	find_package(GLEW REQUIRED)
 
 	set ( SRC	${SRC}
-				common/src/render/opengl/OpenGLRender.cpp
-				common/src/render/opengl/OpenGLTextureBuilder.cpp
-				common/src/render/opengl/RenderCullingOpenGL.cpp
-				common/src/render/opengl/RenderObject2dOpenGL.cpp
-				common/src/render/opengl/RenderObject3dOpenGL.cpp
-				common/src/render/opengl/RenderPrimitive2dOpenGL.cpp
-				common/src/render/opengl/RenderText2dOpenGL.cpp
-				common/src/render/opengl/RenderTransform2dOpenGL.cpp
-				common/src/render/opengl/RenderTransform3dOpenGL.cpp
-				common/src/render/opengl/RenderTransformCommonOpenGL.cpp
-				common/src/platform/OSOpenGLManager.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/OpenGLRender.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/OpenGLTextureBuilder.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/RenderCullingOpenGL.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/RenderObject2dOpenGL.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/RenderObject3dOpenGL.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/RenderPrimitive2dOpenGL.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/RenderText2dOpenGL.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/RenderTransform2dOpenGL.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/RenderTransform3dOpenGL.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/render/opengl/RenderTransformCommonOpenGL.cpp
+				${CMAKE_CURRENT_SOURCE_DIR}/common/src/platform/OSOpenGLManager.cpp
 		)
 
 endif (USE_OPENGL)
