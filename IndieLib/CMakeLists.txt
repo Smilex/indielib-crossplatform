@@ -47,9 +47,6 @@ file ( GLOB INC common/include/*.h common/include/*.hpp common/src/*.h common/sr
 set( CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules" )
 
 find_package(SDL2 REQUIRED)
-find_package(FreeImage REQUIRED)
-find_package(UnitTest++)
-find_package(TinyXML)
 
 option (USE_OPENGL "Use OpenGL for rendering." ON)
 
@@ -78,17 +75,20 @@ if(NOT SDL2_FOUND)
 	set (SDL2_INCLUDE_DIR common/dependencies/SDL-2.0/include)
 endif(NOT SDL2_FOUND)
 
-if(NOT UnitTest++_FOUND)
-	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/unittest++)
-	set ( UnitTest++_LIBRARY UnitTest++)
-	set ( UnitTest++_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/unittest++/src )
-endif(NOT UnitTest++_FOUND)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/unittest++)
+set ( UnitTest++_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/unittest++/src )
 
-if(NOT TINYXML_FOUND)
-	add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/tinyxml)
-	set ( TINYXML_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/tinyxml)
-	set ( TINYXML_LIBRARIES TinyXML )
-endif(NOT TINYXML_FOUND)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/tinyxml)
+set ( TINYXML_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/tinyxml)
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/FreeImage)
+set ( FreeImage_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/FreeImage/Source )
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/TmxParser)
+set ( TmxParser_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/TmxParser)
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/glew-1.9.0)
+set ( GLEW_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/glew-1.9.0/include)
 
 if (USE_OPENGLES)
 	find_package(OpenGLES)
@@ -124,4 +124,4 @@ add_definitions("-fPIC")
 
 add_library( IndieLib ${IndieLib_BUILD_TYPE} ${SRC} ${INC} )
 
-target_link_libraries( IndieLib SpriterParser ${TINYXML_LIBRARIES} ${GLEW_LIBRARY} ${SDL2_LIBRARY} ${FreeImage_LIBRARY} ${TmxParser_LIBRARY} ${UnitTest++_LIBRARY}  )
+target_link_libraries( IndieLib SpriterParser TinyXML GLEW ${SDL2_LIBRARY} FreeImage TmxParser UnitTest++  )
