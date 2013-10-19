@@ -9,6 +9,10 @@ set ( SRC	src/glew.c
 			src/visualinfo.c
 	)
 
-file ( GLOB INC include/*.h )
+file ( GLOB INC include/GL/*.h )
+
+include_directories(include include/GL)
+
+set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC" )
 
 add_library(GLEW STATIC ${SRC} ${INC})
