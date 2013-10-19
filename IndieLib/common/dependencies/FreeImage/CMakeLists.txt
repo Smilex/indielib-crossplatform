@@ -8,11 +8,9 @@ file( GLOB SRC	Source/DeprecationManager/*.cpp
 				Source/FreeImage/*.cpp
 				Source/FreeImageLib/*.cpp
 				Source/FreeImageToolkit/*.cpp
-				Source/LibJPEG/*.cpp
 				Source/LibOpenJPEG/*.cpp
 				Source/LibPNG/*.cpp
 				Source/LibRawLite/*.cpp
-				Source/LibTIFF4/*.cpp
 				Source/Metadata/*.cpp
 				Source/OpenEXR/*.cpp
 				Source/ZLib/*.cpp
@@ -20,11 +18,9 @@ file( GLOB SRC	Source/DeprecationManager/*.cpp
 				Source/FreeImage/*.c
 				Source/FreeImageLib/*.c
 				Source/FreeImageToolkit/*.c
-				Source/LibJPEG/*.c
 				Source/LibOpenJPEG/*.c
 				Source/LibPNG/*.c
 				Source/LibRawLite/*.c
-				Source/LibTIFF4/*.c
 				Source/Metadata/*.c
 				Source/OpenEXR/*.c
 				Source/ZLib/*.c
