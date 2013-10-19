@@ -20,4 +20,6 @@ set ( SRC	TmxImage.cpp
 
 file ( GLOB INC *.h *.hpp base64/*.h base64/*.hpp )
 
+include_directories(${CMAKE_SOURCE_DIR}/common)
+
 add_library(TmxParser STATIC ${SRC} ${INC})

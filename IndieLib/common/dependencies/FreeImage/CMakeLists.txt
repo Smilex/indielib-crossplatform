@@ -30,6 +30,12 @@ file( GLOB SRC	Source/DeprecationManager/*.cpp
 				Source/ZLib/*.c
 	)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/Source)
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/Source
+					 ${CMAKE_CURRENT_SOURCE_DIR}/Source/OpenEXR/IlmImf
+					 ${CMAKE_CURRENT_SOURCE_DIR}/Source/OpenEXR/Imath
+					 ${CMAKE_CURRENT_SOURCE_DIR}/Source/OpenEXR/IlmThread
+					 ${CMAKE_CURRENT_SOURCE_DIR}/Source/OpenEXR/Iex
+					 ${CMAKE_CURRENT_SOURCE_DIR}/Source/OpenEXR/Half
+					)
 
 add_library(FreeImage STATIC ${SRC})
