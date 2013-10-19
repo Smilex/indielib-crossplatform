@@ -13,6 +13,6 @@ file ( GLOB INC include/GL/*.h )
 
 include_directories(include include/GL)
 
-set ( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC" )
+add_definitions("-fPIC")
 
 add_library(GLEW STATIC ${SRC} ${INC})

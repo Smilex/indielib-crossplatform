@@ -7,7 +7,7 @@
 cmake_minimum_required (VERSION 2.6)
 project(IndieLib)
 
-option(USE_OPENGLES "Compile with OpenGL ES support" YES)
+option(USE_OPENGLES "Compile with OpenGL ES support" NO)
 
 set ( SRC	${CMAKE_CURRENT_SOURCE_DIR}/common/src/CollisionParser.cpp
 			${CMAKE_CURRENT_SOURCE_DIR}/common/src/DebugApi.cpp
@@ -68,6 +68,7 @@ if (USE_OPENGL)
 
 endif (USE_OPENGL)
 
+set (SDL_SHARED OFF)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/SDL-2.0)
 set (SDL2_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common/dependencies/SDL-2.0/include)
 

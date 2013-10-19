@@ -34,4 +34,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/Source
 					 ${CMAKE_CURRENT_SOURCE_DIR}/Source/OpenEXR/Half
 					)
 
+add_definitions("-fPIC")
+
 add_library(FreeImage STATIC ${SRC})

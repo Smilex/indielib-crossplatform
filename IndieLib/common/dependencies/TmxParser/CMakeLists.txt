@@ -22,4 +22,6 @@ file ( GLOB INC *.h *.hpp base64/*.h base64/*.hpp )
 
 include_directories(${CMAKE_SOURCE_DIR}/common)
 
+add_definitions("-fPIC")
+
 add_library(TmxParser STATIC ${SRC} ${INC})
